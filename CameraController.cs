@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
         Vector3 playerPos = playerTransform.position;
         Transform cameraTransform = cameraBox.transform;
         Vector3 cameraPos = cameraTransform.position;
+        cameraPos.y = playerPos.y;
+        cameraTransform.position = cameraPos;
         Vector3 rightCameraLimit = playerPos + new Vector3(4f, 0f, -10f);
         if(playerController.playerRotation == false && cameraPos.x < rightCameraLimit.x){
             cameraPos.x += 0.02f;
@@ -31,6 +33,7 @@ public class CameraController : MonoBehaviour
             cameraPos.x -= 0.02f;
             cameraTransform.position = cameraPos;
         }
+
 
     }
 }
